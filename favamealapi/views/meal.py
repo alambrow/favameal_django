@@ -16,7 +16,7 @@ class MealSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Meal
-        fields = ('id', 'name', 'restaurant', 'user_rating', 'avg_rating')
+        fields = ('id', 'name', 'restaurant', )
 
 
 class MealView(ViewSet):

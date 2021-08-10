@@ -13,7 +13,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Restaurant
-        fields = ('id', 'name', 'address', 'favorite',)
+        fields = ('id', 'name', 'address' )
 
 class FaveSerializer(serializers.ModelSerializer):
     """JSON serializer for favorites"""
@@ -70,8 +70,8 @@ class RestaurantView(ViewSet):
         """
         restaurants = Restaurant.objects.all()
 
-        # TODO: Add the correct value to the `favorite` property of each restaurant
-
+        # TODO: Add the correct value to the favorite property of each restaurant
+        restaurants.favorite = False
 
         serializer = RestaurantSerializer(restaurants, many=True, context={'request': request})
 
